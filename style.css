@@ -1,7 +1,15 @@
 html {
+    overflow-wrap: break-word;
+}
+
+html, textarea, button {
     color: #181818;
     background-color: #F2F2F2;
-    overflow-wrap: break-word;
+    font-size: 1em;
+}
+
+html, button, textarea {
+    font-family: monospace;
 }
 
 a:link {
@@ -17,20 +25,8 @@ a:visited:active {
     color: #FF0000;
 }
 
-input,
-textarea {
-    font-family: serif;
-    font-size: 1em;
-    width: 240px;
-    box-sizing: border-box;
-    margin-bottom: 4px;
-    border: 1px solid;
-    color: #B8B8B8;
-    background-color: #111111;
-}
-
 @media (prefers-color-scheme: dark) {
-    html {
+    html, textarea, button {
         color: #B8B8B8;
         background-color: #111111;
     }
@@ -46,11 +42,5 @@ textarea {
     a:link:active,
     :visited:active {
         color: #FF5959;
-    }
-
-    input,
-    textarea {
-        color: #B8B8B8;
-        background-color: #111111;
     }
 }

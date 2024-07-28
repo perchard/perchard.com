@@ -4,7 +4,7 @@ const supabase = createClient('https://szzqrrbnlhftncimdjdu.supabase.co', 'eyJhb
 async function fetchData() {
     const { data, error } = await supabase
         .from('guestbook')
-        .select('name, message, created_at')
+        .select('message, created_at')
         .order('created_at', { ascending: false });
     if (error) {
         console.error(error);
@@ -18,7 +18,7 @@ function updateDOM(data) {
     div.innerHTML = '';
     data.forEach(item => {
         const itemElement = document.createElement('div');
-        itemElement.innerHTML = `${item.message}<br>– ${item.name}<br><br>`;
+        itemElement.innerHTML = `${item.message}<br><br>`;
         div.appendChild(itemElement);
     });
 }
@@ -26,11 +26,10 @@ function updateDOM(data) {
 async function handleSubmit(event) {
     event.preventDefault();
 
-    const name = document.getElementById('name').value;
     const message = document.getElementById('message').value;
 
     const { data, error } = await supabase.from('guestbook').insert([
-        { name, message }
+        { message }
     ]);
 
     if (error) {
@@ -40,7 +39,6 @@ async function handleSubmit(event) {
         fetchData();
     }
 
-    document.getElementById('name').value = '';
     document.getElementById('message').value = '';
 }
 
