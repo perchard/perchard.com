@@ -1,12 +1,17 @@
-html, button, textarea, input {
+html,
+button,
+textarea,
+input {
     font-size: 1em;
 }
 
-html, button {    
+html,
+button {
     font-family: serif;
 }
 
-textarea, input {
+textarea,
+input {
     font-family: monospace;
 }
 
@@ -31,25 +36,3 @@ input {
 textarea {
     vertical-align: bottom;
 }
-
-
-
-/* @media (prefers-color-scheme: dark) {
-    html, textarea, button, input {
-        color: #B8B8B8;
-        background-color: #111111;
-    }
-
-    a:link {
-        color: #4646FF;
-    }
-
-    a:visited {
-        color: #9544E0;
-    }
-
-    a:link:active,
-    :visited:active {
-        color: #FF5959;
-    }
-} */
