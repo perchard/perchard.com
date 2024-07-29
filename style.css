@@ -1,14 +1,12 @@
-html {
-    overflow-wrap: break-word;
-}
-
-html, textarea, button {
-    color: #181818;
-    background-color: #F2F2F2;
+html, button, textarea, input {
     font-size: 1em;
 }
 
-html, button, textarea {
+html, button {    
+    font-family: serif;
+}
+
+textarea, input {
     font-family: monospace;
 }
 
@@ -25,8 +23,19 @@ a:visited:active {
     color: #FF0000;
 }
 
-@media (prefers-color-scheme: dark) {
-    html, textarea, button {
+textarea,
+input {
+    margin-bottom: 8px;
+}
+
+textarea {
+    vertical-align: bottom;
+}
+
+
+
+/* @media (prefers-color-scheme: dark) {
+    html, textarea, button, input {
         color: #B8B8B8;
         background-color: #111111;
     }
@@ -43,4 +52,4 @@ a:visited:active {
     :visited:active {
         color: #FF5959;
     }
-}
+} */
