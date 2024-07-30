@@ -22,7 +22,7 @@ function updateDOM(data) {
         const message = DOMPurify.sanitize(item.message, {ALLOWED_TAGS: []});
         const name = DOMPurify.sanitize(item.name, {ALLOWED_TAGS: []});;
         const location = DOMPurify.sanitize(item.location, {ALLOWED_TAGS: []});
-        itemElement.innerHTML = `${message}1<br>– ${name} (${location})<br><br>`;
+        itemElement.innerHTML = `${message}<br>– ${name} (${location})<br><br>`;
         div.appendChild(itemElement);
     });
 }
