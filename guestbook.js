@@ -15,6 +15,8 @@ async function fetchData() {
 }
 
 function updateDOM(data) {
+    const count = document.getElementById('guest-count');
+    count.innerHTML = `<i>${data.length} guests have signed the guestbook.</i>`;
     const div = document.getElementById('guestbook');
     div.innerHTML = '';
     data.forEach(item => {
