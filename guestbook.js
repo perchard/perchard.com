@@ -1,4 +1,5 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3.1.6/+esm'
 const supabase = createClient('https://szzqrrbnlhftncimdjdu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6enFycmJubGhmdG5jaW1kamR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjIxMzMwOTMsImV4cCI6MjAzNzcwOTA5M30.0Ej4JGFZwFR4BXevkeknU4M9QAnloP7rj9LbdIf-r2Y')
 
 async function fetchData() {
@@ -18,7 +19,10 @@ function updateDOM(data) {
     div.innerHTML = '';
     data.forEach(item => {
         const itemElement = document.createElement('div');
-        itemElement.innerHTML = `${item.message}<br>– ${item.name} (${item.location})<br><br>`;
+        const message = DOMPurify.sanitize(item.message, {ALLOWED_TAGS: []});
+        const name = DOMPurify.sanitize(item.name, {ALLOWED_TAGS: []});;
+        const location = DOMPurify.sanitize(item.location, {ALLOWED_TAGS: []});
+        itemElement.innerHTML = `${message}1<br>– ${name} (${location})<br><br>`;
         div.appendChild(itemElement);
     });
 }
